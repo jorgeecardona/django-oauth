@@ -1,0 +1,27 @@
+
+
+== Usage.
+
+ 1. Install last version.
+ 
+ $ pip install --upgrade djoauth
+
+
+ 2. Add the application to INSTALLED_APPS:
+
+ INSTALLED_APPS += ('djoauth', )
+
+ 3. Create needed tables.
+ 
+ $ python manage.py syncdb
+
+ 4. Add the default views to url.
+
+ project/urls.py:
+
+ urlpatterns += patterns(
+     'djoauth.views',
+     url(r'^oauth/request_token/$', 'request_token'),
+     url(r'^oauth/authorize/$', 'oauth_user_auth'),
+     url(r'^oauth/access_token/$', 'oauth_access_token'),
+        )
